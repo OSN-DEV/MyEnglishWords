@@ -35,6 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OsnCsLib.Common">
+      <HintPath>libs\OsnCsLib.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="OsnCsLib.Data">
+      <HintPath>libs\OsnCsLib.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="OsnCsLib.File">
+      <HintPath>libs\OsnCsLib.File.dll</HintPath>
+    </Reference>
+    <Reference Include="OsnCsLib.WPFComponent">
+      <HintPath>libs\OsnCsLib.WPFComponent.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -58,6 +70,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Component\IconButton.xaml.cs" />
+    <Compile Include="Data\Model\AppDataModel.cs" />
+    <Compile Include="Data\Repo\AppDataRepo.cs" />
+    <Compile Include="File\CacheCleanTask.cs" />
+    <Compile Include="File\CacheConverter.cs" />
+    <Compile Include="UI\EnglishWords\EnglishWordsDataModel.cs" />
+    <Compile Include="UI\EnglishWords\EnglishWordsDesignModel.cs" />
+    <Compile Include="UI\EnglishWords\EnglishWordsWindow.xaml.cs">
+      <DependentUpon>EnglishWordsWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +107,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Component\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Component\IconButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Res\ImageDefinition.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\EnglishWords\EnglishWordsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\delete.jpg" />
+    <Resource Include="Res\folder.jpg" />
+    <Resource Include="Res\refresh.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,5 +11,16 @@ namespace MyEnglishWords {
     /// App.xaml の相互作用ロジック
     /// </summary>
     public partial class App : Application {
+
+        #region Event
+        protected override void OnStartup(StartupEventArgs e) {
+            // 二重起動チェック
+            base.OnStartup(e);
+        }
+
+        protected override void OnExit(ExitEventArgs e) {
+            base.OnExit(e);
+        }
+        #endregion
     }
 }
