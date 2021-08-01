@@ -42,6 +42,25 @@ namespace MyEnglishWords.UI.EnglishWords {
         public string PageInfo {
             get { return $"{this._currentPage.ToString("D3")}/{this._totalPage.ToString("D3")}"; }
         }
+
+        /// <summary>
+        /// 再生回数
+        /// </summary>
+        private int _playCount;
+        public int PlayCount {
+            set {
+                base.SetProperty(ref this._playCount, value);
+                base.SetProperty(nameof(DisplayPlayCount));
+            }
+            get { return this._playCount; }
+        }
+
+        /// <summary>
+        /// 再生回数(表示用)
+        /// </summary>
+        public string DisplayPlayCount {
+            get { return $"{this._playCount} times"; }
+        }
         #endregion
 
         #region Constructor

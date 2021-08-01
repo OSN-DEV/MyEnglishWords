@@ -12,14 +12,21 @@ namespace MyEnglishWords {
     /// </summary>
     public partial class App : Application {
 
+        #region Declaration
+        private OsnCsLib.Common.AppLaunchChecker _checker = new OsnCsLib.Common.AppLaunchChecker("MyEnglishWords");
+        #endregion
+
         #region Event
         protected override void OnStartup(StartupEventArgs e) {
-            // 二重起動チェック
             base.OnStartup(e);
+            if (this._checker.IsLaunched()) {
+                this.Shutdown();
+            }
         }
 
         protected override void OnExit(ExitEventArgs e) {
             base.OnExit(e);
+            this._checker.Release();
         }
         #endregion
     }
